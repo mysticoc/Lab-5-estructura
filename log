@@ -81,3 +81,14 @@ Thu Oct  1 07:20:26 PM UTC 2026:
  tests:  12|0
 ========================================
 46dd786
+Thu Oct  1 07:22:08 PM UTC 2026: 
+ graph.c | 7 +++----
+ 1 file changed, 3 insertions(+), 4 deletions(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘destroyGraph’:
+graph.c:126:25: error: ‘g’ undeclared (first use in this function)
+  126 |         pair = map_next(g->adjacencyMap);
+      |                         ^
+graph.c:126:25: note: each undeclared identifier is reported only once for each function it appears in
+200b3cc

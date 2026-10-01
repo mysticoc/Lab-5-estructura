@@ -98,15 +98,12 @@ List* getAdjacentLabels(Graph* grafo, const char* label) {
     list_pushBack(listaEtiquetasAdyacentes, aristaActual->target);
     aristaActual = (Edge*)list_next(aristasDelOrigen);
   }
-
-
   return listaEtiquetasAdyacentes; 
 }
 
-void destroyGraph(Graph* g) {
-    if (!g) return;
-
-    MapPair* pair = map_first(g->adjacencyMap);
+void destroyGraph(Graph* grafo) {
+    if (!grafo) return;
+    MapPair* pair = map_first(grafo->adjacencyMap);
     while (pair != NULL) {
         char* label = (char*)pair->key;
         List* edgesList = (List*)pair->value;
