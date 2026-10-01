@@ -14,12 +14,12 @@
 
 struct Graph {
     // Un solo mapa basta: Llave (char* label) -> Valor (List* de Edge*)
-    Map* adjacencyMap; 
+  Map* adjacencyMap; 
 };
 
 // Función auxiliar para comparar strings en el mapa
 int is_equal_string(void *key1, void *key2) {
-    return strcmp((char*)key1, (char*)key2) == 0;
+  return strcmp((char*)key1, (char*)key2) == 0;
 }
 
 /* =========================================
@@ -27,45 +27,45 @@ int is_equal_string(void *key1, void *key2) {
  * ========================================= */
 
 Graph* createGraph() {
-    Graph* grafo = (Graph*)malloc(sizeof(Graph));
-    if (!grafo) return NULL;
+  Graph* grafo = (Graph*)malloc(sizeof(Graph));
+  if (!grafo) return NULL;
 
-    grafo->adjacencyMap = map_create(is_equal_string);
-    return grafo;
+  grafo->adjacencyMap = map_create(is_equal_string);
+  return grafo;
 }
 
 void addNode(Graph* grafo, const char* label) {
-    if (!grafo || !label) return;
+  if (!grafo || !label) return;
 
-    if (map_search(grafo->adjacencyMap, (void*)label) != NULL) {
-        return;
-    }
-    char* nuevaEtiqueta = (char*)malloc(strlen(label) + 1);
-    strcpy(nuevaEtiqueta, label);
-    List* nuevaListaAristas = list_create();
-    map_insert(grafo->adjacencyMap, nuevaEtiqueta, nuevaListaAristas);
-
+  if (map_search(grafo->adjacencyMap, (void*)label) != NULL) {
+      return;
+  }
+  char* nuevaEtiqueta = (char*)malloc(strlen(label) + 1);
+  strcpy(nuevaEtiqueta, label);
+  List* nuevaListaAristas = list_create();
+  map_insert(grafo->adjacencyMap, nuevaEtiqueta, nuevaListaAristas);
 }
 
 void addEdge(Graph* grafo, const char* src, const char* dest, int weight) {
-    if (!grafo || !src || !dest) return;
-    MapPair* parOrigen = map_search(grafo->adjacencyMap, (void*)src);
-    if (!parOrigen) return;
-    List* aristasDelOrigen = (List*)parOrigen->value;
-    Edge* nuevaArista = (Edge*)malloc(sizeof(Edge));
-    nuevaArista->target = (char*)malloc(strlen(dest) + 1);
-    strcpy(nuevaArista->target, dest);
-    nuevaArista->weight = weight;
+  if (!grafo || !src || !dest) return;
+  MapPair* parOrigen = map_search(grafo->adjacencyMap, (void*)src);
+  if (!parOrigen) return;
+  List* aristasDelOrigen = (List*)parOrigen->value;
+  Edge* nuevaArista = (Edge*)malloc(sizeof(Edge));
+  nuevaArista->target = (char*)malloc(strlen(dest) + 1);
+  strcpy(nuevaArista->target, dest);
+  nuevaArista->weight = weight;
 
-    list_pushBack(aristasDelOrigen, nuevaArista);
-
-
+  list_pushBack(aristasDelOrigen, nuevaArista);
 }
 
-List* getEdges(Graph* g, const char* label) {
-    if (!g || !label) return NULL;
-
-    return NULL;
+List* getEdges(Graph* grafo, const char* label) {
+  if (!grafo || !label) return NULL;
+  MapPair* parBuscado = map_search(grafo->adjacencyMap, (void*)label);
+  if (parBuscado) {
+    return (List*)parBuscado->value;
+  }
+  return NULL;
 }
 
 int getWeight(Graph* g, const char* label1, const char* label2) {
