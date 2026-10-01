@@ -92,7 +92,7 @@ List* getAdjacentLabels(Graph* grafo, const char* label) {
   if (!aristasDelOrigen) return NULL;
 
   List* listaEtiquetasAdyacentes = list_create();
-  Edge* aristaActual = (Edge*)list_first(aistasDelOrigen);
+  Edge* aristaActual = (Edge*)list_first(aristasDelOrigen);
 
   while (aristaActual != NULL) {
     list_pushBack(listaEtiquetasAdyacentes, aristaActual->target);
