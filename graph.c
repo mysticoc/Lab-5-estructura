@@ -123,7 +123,7 @@ void destroyGraph(Graph* grafo) {
         // 3. Liberar la llave del mapa (el label origen)
         free(label);
 
-        pair = map_next(g->adjacencyMap);
+        pair = map_next(grafo->adjacencyMap);
     }
 
     // 4. Limpiar y liberar el mapa y el grafo

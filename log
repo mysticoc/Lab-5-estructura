@@ -92,3 +92,14 @@ graph.c:126:25: error: ‘g’ undeclared (first use in this function)
       |                         ^
 graph.c:126:25: note: each undeclared identifier is reported only once for each function it appears in
 200b3cc
+Thu Oct  1 07:22:30 PM UTC 2026: 
+ graph.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘destroyGraph’:
+graph.c:130:15: error: ‘g’ undeclared (first use in this function)
+  130 |     map_clean(g->adjacencyMap);
+      |               ^
+graph.c:130:15: note: each undeclared identifier is reported only once for each function it appears in
+cec2d80
