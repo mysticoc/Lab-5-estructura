@@ -6,3 +6,34 @@ Fri May  8 10:07:21 PM UTC 2026:
  tests:  0|6
 ========================================
 36e8bf5
+Thu Oct  1 06:56:51 PM UTC 2026: 
+ graph.c | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘createGraph’:
+graph.c:33:38: error: ‘is_equak_string’ undeclared (first use in this function); did you mean ‘is_equal_string’?
+   33 |     grafo->adjacencyMap = map_create(is_equak_string);
+      |                                      ^~~~~~~~~~~~~~~
+      |                                      is_equal_string
+graph.c:33:38: note: each undeclared identifier is reported only once for each function it appears in
+graph.c: In function ‘addNode’:
+graph.c:38:10: error: ‘grafo’ undeclared (first use in this function)
+   38 |     if (!grafo || !label) return;
+      |          ^~~~~
+graph.c:46:52: error: ‘nuevaLista’ undeclared (first use in this function); did you mean ‘nuevaEtiqueta’?
+   46 |     map_insert(grafo->adjacencyMap, nuevaEtiqueta, nuevaLista)
+      |                                                    ^~~~~~~~~~
+      |                                                    nuevaEtiqueta
+graph.c:46:63: error: expected ‘;’ before ‘}’ token
+   46 |     map_insert(grafo->adjacencyMap, nuevaEtiqueta, nuevaLista)
+      |                                                               ^
+      |                                                               ;
+   47 | 
+   48 | }
+      | ~                                                              
+graph.c:45:11: error: unused variable ‘nuevaListaAristas’ [-Werror=unused-variable]
+   45 |     List* nuevaListaAristas = list_create();
+      |           ^~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+f414d73
