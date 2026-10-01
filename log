@@ -59,3 +59,15 @@ Thu Oct  1 07:15:27 PM UTC 2026:
  tests:  12|0
 ========================================
 ddf18e4
+Thu Oct  1 07:19:53 PM UTC 2026: 
+ graph.c | 16 +++++++++++++---
+ 1 file changed, 13 insertions(+), 3 deletions(-)
+Compilation failed
+In file included from test.c:5:
+graph.c: In function ‘getAdjacentLabels’:
+graph.c:95:42: error: ‘aistasDelOrigen’ undeclared (first use in this function); did you mean ‘aristasDelOrigen’?
+   95 |   Edge* aristaActual = (Edge*)list_first(aistasDelOrigen);
+      |                                          ^~~~~~~~~~~~~~~
+      |                                          aristasDelOrigen
+graph.c:95:42: note: each undeclared identifier is reported only once for each function it appears in
+0d21ebf
