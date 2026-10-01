@@ -30,11 +30,11 @@ Graph* createGraph() {
     Graph* grafo = (Graph*)malloc(sizeof(Graph));
     if (!grafo) return NULL;
 
-    grafo->adjacencyMap = map_create(is_equak_string);
+    grafo->adjacencyMap = map_create(is_equal_string);
     return grafo;
 }
 
-void addNode(Graph* g, const char* label) {
+void addNode(Graph* grafo, const char* label) {
     if (!grafo || !label) return;
 
     if (map_search(grafo->adjacencyMap, (void*)label) != NULL) {
@@ -43,7 +43,7 @@ void addNode(Graph* g, const char* label) {
     char* nuevaEtiqueta = (char*)malloc(strlen(label) + 1);
     strcpy(nuevaEtiqueta, label);
     List* nuevaListaAristas = list_create();
-    map_insert(grafo->adjacencyMap, nuevaEtiqueta, nuevaLista)
+    map_insert(grafo->adjacencyMap, nuevaEtiqueta, nuevaListaAristas);
 
 }
 

@@ -37,3 +37,8 @@ graph.c:45:11: error: unused variable ‘nuevaListaAristas’ [-Werror=unused-va
       |           ^~~~~~~~~~~~~~~~~
 cc1: all warnings being treated as errors
 f414d73
+Thu Oct  1 06:59:41 PM UTC 2026: 
+ graph.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+ tests:  0|0
+aa12024
