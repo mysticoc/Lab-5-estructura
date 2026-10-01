@@ -47,8 +47,18 @@ void addNode(Graph* grafo, const char* label) {
 
 }
 
-void addEdge(Graph* g, const char* src, const char* dest, int weight) {
-    if (!g || !src || !dest) return;
+void addEdge(Graph* grafo, const char* src, const char* dest, int weight) {
+    if (!grafo || !src || !dest) return;
+    MapPair* parOrigen = map_search(grafo->adjacencyMap, (void*)src);
+    if (!parOrigen) return;
+    List* aristasDelOrigen = (List*)parOrigen->value;
+    Edge* nuevaArista = (Edge*)malloc(sizeof(Edge));
+    nuevaArista->target = (char*)malloc(strlen(dest) + 1);
+    strcpy(nuevaArista->target, dest);
+    nuevaArista->weight = weight;
+
+    list_pushBack(aristasDelOrigen, nuevaArista);
+
 
 }
 
