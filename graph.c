@@ -127,7 +127,7 @@ void destroyGraph(Graph* grafo) {
     }
 
     // 4. Limpiar y liberar el mapa y el grafo
-    map_clean(g->adjacencyMap);
-    free(g->adjacencyMap);
-    free(g);
+    map_clean(grafo->adjacencyMap);
+    free(grafo->adjacencyMap);
+    free(grafo);
 }
